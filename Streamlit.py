@@ -5,24 +5,15 @@ import random
 from PIL import Image, ImageOps
 import numpy as np
 
-# hide deprication warnings which directly don't affect the working of the application
 import warnings
 warnings.filterwarnings("ignore")
 
-# set some pre-defined configurations for the page
+# set some pre-defined configurations
 st.set_page_config(
     page_title="Malaria cell image Detection",
     page_icon = ":mosquito:",
     initial_sidebar_state = 'auto'
 )
-# hide the part of the code, as this is just for adding some custom CSS styling but not a part of the main idea 
-hide_streamlit_style = """
-	<style>
-  #MainMenu {visibility: hidden;}
-	footer {visibility: hidden;}
-  </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 def prediction_cls(prediction): # predict the class of the images based on the model results
     for key, clss in class_names.items(): # create a dictionary of the output classes
